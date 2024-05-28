@@ -11,10 +11,7 @@ public class Main {
         System.out.println(checkPasswordDigits("Test1234"));
     }
     public static boolean checkPasswordLength(String password) {
-        if (password.length() < 8) {
-            return false;
-        }
-        return true;
+        return password.length() >= 8;
     }
     public static boolean checkPasswordDigits(String password) {
        for (int i = 0; i < password.length(); i++) {
@@ -41,10 +38,10 @@ public class Main {
         return false;
     }
     public static boolean checkCommonPassword(String password) {
-        String common[] = {"password","swordfish","test"};
+        String[] common = {"password","swordfish","test"};
         String passwordLow = password.toLowerCase();
-        for(int i=0;common.length>i;i++ ) {
-            if (passwordLow.contains(common[i])) {
+        for (String s : common) {
+            if (passwordLow.contains(s)) {
                 return false;
             }
         }
