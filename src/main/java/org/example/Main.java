@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 /** checkPasswordDigits
  * checkPasswordCases
  * checkCommonPassword
@@ -8,7 +10,11 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(checkPasswordDigits("Test1234"));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your password: ");
+        String password = sc.nextLine();
+        System.out.println(passwordFeedback(password));
+
     }
     public static boolean checkPasswordLength(String password) {
         return password.length() >= 8;
@@ -38,7 +44,7 @@ public class Main {
         return false;
     }
     public static boolean checkCommonPassword(String password) {
-        String[] common = {"password","swordfish","test"};
+        String[] common = {"password","swordfish","test","hello"};
         String passwordLow = password.toLowerCase();
         for (String s : common) {
             if (passwordLow.contains(s)) {
@@ -66,5 +72,25 @@ public class Main {
             }
         }
         return false;
+    }
+    public static String passwordFeedback(String password) {
+        if (!checkPasswordLength(password)) {
+            return "Your Password: "+ password + " must contain at least 8 characters";
+        }
+        else if (!checkPasswordDigits(password)) {
+            return "Your Password: "+ password + " must contain at least one number";
+       }
+        else if (!checkPasswordUpperCases(password)) {
+            return "Your Password: "+ password + " must contain at least one uppercase";
+        } else if (!checkPasswordLowerCases(password)) {
+            return "Your Password: "+ password + " must contain at least one lowercase";
+        }
+        else if (!checkSpecialCharacters(password)) {
+            return "Your Password: "+ password + " must contain at least one special character";
+        } else if (!checkCommonPassword(password)) {
+            return "Your Password: "+ password + " is insecure please try another one";
+        }
+        return "Your Password: " +password+" has been added";
+
     }
 }
