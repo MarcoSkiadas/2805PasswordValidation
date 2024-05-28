@@ -82,5 +82,16 @@ class MainTest {
         boolean actual = Main.checkCommonPassword("veWr9643#");
         assertEquals(expected, actual);
     }
-
+    @Test
+    void checkSpecialCharacters_shouldReturnTrue_whenCalledWithSpecialCharacters() {
+        boolean expected = true;
+        boolean actual = Main.checkSpecialCharacters("Test1234#");
+        assertEquals(expected,actual);
+    }
+    @Test
+    void checkSpecialCharacters_shouldReturnFalse_whenCalledWithoutSpecialCharacters() {
+        boolean expected = false;
+        boolean actual = Main.checkSpecialCharacters("Test1234");
+        assertEquals(expected,actual);
+    }
 }
