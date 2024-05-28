@@ -47,5 +47,40 @@ class MainTest {
         assertEquals(expected,actual);
     }
     @Test
-    void checkPasswordCases_shouldReturnTrue_whenCalledWithUppercaseDigits(){}
+    void checkPasswordUpperCases_shouldReturnTrue_whenCalledWithUppercase(){
+        boolean expected = true;
+        boolean actual = Main.checkPasswordUpperCases("TeSt");
+        assertEquals(expected,actual);
+    }
+    @Test
+    void checkPasswordUpperCases_shouldReturnFalse_whenCalledWithLowercase(){
+        boolean expected = false;
+        boolean actual = Main.checkPasswordUpperCases("test");
+        assertEquals(expected,actual);
+    }
+    @Test
+    void checkPasswordLowerCases_shouldReturnTrue_whenCalledWithLowercase() {
+        boolean expected = true;
+        boolean actual = Main.checkPasswordLowerCases("TeSt");
+        assertEquals(expected, actual);
+    }
+    @Test
+    void checkPasswordLowerCases_shouldReturnFalse_whenCalledWithLowercase() {
+        boolean expected = false;
+        boolean actual = Main.checkPasswordLowerCases("TEST");
+        assertEquals(expected, actual);
+        }
+    @Test
+    void checkCommonPassword_shouldReturnFalse_whenCalledWithCommonPassword() {
+        boolean expected = false;
+        boolean actual = Main.checkPasswordLowerCases("TEST");
+        assertEquals(expected, actual);
+    }
+    @Test
+    void checkCommonPassword_shouldReturnTrue_whenNotCalledWithCommonPassword() {
+        boolean expected = true;
+        boolean actual = Main.checkPasswordLowerCases("TEST");
+        assertEquals(expected, actual);
+    }
+
 }
