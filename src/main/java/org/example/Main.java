@@ -40,4 +40,5 @@ public class Main {
         }
         return false;
     }
+    // soll eine Zahl / Zeichen /soll ein Case sein / bekannte Wörter
 }
