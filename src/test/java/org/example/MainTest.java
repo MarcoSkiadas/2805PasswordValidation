@@ -73,13 +73,13 @@ class MainTest {
     @Test
     void checkCommonPassword_shouldReturnFalse_whenCalledWithCommonPassword() {
         boolean expected = false;
-        boolean actual = Main.checkPasswordLowerCases("TEST");
+        boolean actual = Main.checkCommonPassword("Test1234");
         assertEquals(expected, actual);
     }
     @Test
-    void checkCommonPassword_shouldReturnTrue_whenNotCalledWithCommonPassword() {
+    void checkCommonPassword_shouldReturnTrue_whenCalledWithUncommonPassword() {
         boolean expected = true;
-        boolean actual = Main.checkPasswordLowerCases("TEST");
+        boolean actual = Main.checkCommonPassword("veWr9643#");
         assertEquals(expected, actual);
     }
 

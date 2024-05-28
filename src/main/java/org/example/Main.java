@@ -40,5 +40,27 @@ public class Main {
         }
         return false;
     }
+    public static boolean checkCommonPassword(String password) {
+        String common[] = {"password","swordfish","test"};
+        String passwordLow = password.toLowerCase();
+        for(int i=0;common.length>i;i++ ) {
+            if (passwordLow.contains(common[i])) {
+                return false;
+            }
+        }
+        if(!checkPasswordLength(password)) {
+            return false;
+        }
+        else if(!checkPasswordUpperCases(password)) {
+            return false;
+        }
+        else if(!checkPasswordLowerCases(password)) {
+            return false;
+        }
+        else if(!checkPasswordDigits(password)) {
+            return false;
+        }
+        return true;
+    }
     // soll eine Zahl / Zeichen /soll ein Case sein / bekannte Wörter
 }
